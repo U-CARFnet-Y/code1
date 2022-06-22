@@ -171,7 +171,7 @@ def U_CARFnet(pretrained_weights=None, input_size=(256, 256, 1), phi=3):
     return model
 
 
-def U_CARFnetrain(batch=2, img_num=1448, epochs=50, load_model=None):
+def U_CARFnetrain(batch=1, img_num=30, epochs=150, load_model=None):
     myGene = trainGenerator(batch, "./data1/train", "image", "label", image_num=img_num)
     model = U_CARFnet(load_model)
     model_checkpoint = ModelCheckpoint('U_CARFnet.hdf5', monitor='loss', verbose=1, save_best_only=True)

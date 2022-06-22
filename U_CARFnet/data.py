@@ -18,7 +18,6 @@ Data1 is a picture of the training UNet network
 The training data is stored in data/train/, where the training image is stored in image, and the corresponding training label is stored in label. Note that the name of the image must be corresponding to the meaning, and the name is numbered. Such as:
 PNG in image corresponds to 1.png in label
 The test/ generated image data is stored in data/test/, where the original image is stored in the data/test/test folder, and the processed data is stored in the testResult folder (it does not exist at the beginning of use, and the testResult folder is generated after the execution of the program).
-
 """
 
 def mask_proccess(mask):
@@ -31,7 +30,7 @@ def mask_proccess(mask):
     return mask
 
 def trainGenerator(batch_size, train_path, image_folder,
-                   mask_folder, image_num=1448, target_size=(256, 256)):
+                   mask_folder, image_num=30, target_size=(256, 256)):
     # 对文件进行检索，和编号
     image_dir = os.path.join(train_path, image_folder)
     mask_dir = os.path.join(train_path, mask_folder)
@@ -62,7 +61,7 @@ def trainGenerator(batch_size, train_path, image_folder,
         if i >= image_num: i = 0
         yield (image_batch, mask_batch)
 
-def testGenerator(test_path,num_image = 1448,target_size = (256,256),as_gray=True):
+def testGenerator(test_path,num_image = 30,target_size = (256,256),as_gray=True):
     for i in range(num_image):
         img = io.imread(os.path.join(test_path, "%s.png" % i), as_gray=as_gray)
         img = trans.resize(img, target_size)
@@ -70,7 +69,7 @@ def testGenerator(test_path,num_image = 1448,target_size = (256,256),as_gray=Tru
         img = np.reshape(img, (1,) + img.shape)
         yield img
 
-def testGenerator1(test_path, test_folder, label_folder, num_image = 1448, target_size = (256, 256), as_gray=True):
+def testGenerator1(test_path, test_folder, label_folder, num_image = 30, target_size = (256, 256), as_gray=True):
     test_image_dir = os.path.join(test_path, test_folder)
     test_mask_dir = os.path.join(test_path, label_folder)
     print("-" * 50)
