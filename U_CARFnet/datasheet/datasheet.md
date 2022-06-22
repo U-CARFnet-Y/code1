@@ -217,7 +217,7 @@ In order to facilitate the study, we collected the ore-rock accumulation data af
 
 1. **How will the dataset will be distributed (e.g., tarball  on website, API, GitHub)?** *(Does the dataset have a digital object identifier (DOI)?)*
     
-    The dataset is free for download at https://github.com/U-CARFnet-Y/code1/U_CARFnet/data1.
+    The dataset is free for download at https://github.com/U-CARFnet-Y/tree/main/U_CARFnet/data1.
 
 
 1. **When will the dataset be distributed?**
